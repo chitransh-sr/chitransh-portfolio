@@ -25,22 +25,23 @@ const Skills = () => {
   return (
     <div id="skills" className="w-full bg-[#0a192f] pt-20 text-gray-300">
       <div className="mx-auto flex h-full w-full max-w-[1000px] flex-col justify-center p-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="inline border-b-4 border-[#64ffda] text-4xl font-bold">
-            Skills
-          </p>
-        </motion.div>
+      <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="flex justify-center"
+>
+  <p className="inline-block text-4xl font-bold border-b-4 border-[#64ffda] pb-1">
+    Skills
+  </p>
+</motion.div>
 
-        <div className="grid grid-cols-2 gap-8 py-8 text-center sm:grid-cols-3 md:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-8 py-8 text-center">
           {technologies.map(({ id, name, icon }) => (
             <motion.div
               key={id}
-              className="mx-auto rounded-md p-6 shadow-md shadow-[#040c16] duration-500 hover:scale-110"
+              className="mx-auto rounded-md p-6 shadow-md shadow-[#040c16] duration-500 hover:scale-110 w-1/2 sm:w-1/3 md:w-1/5 flex items-center justify-center flex-col"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: id * 0.1 }}

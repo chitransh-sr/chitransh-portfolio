@@ -3,8 +3,6 @@ import {
   FaLinkedin,
   FaTwitter,
   FaEnvelope,
-  FaCode,
-  FaHackerrank,
 } from "react-icons/fa";
 
 const Footer = () => {

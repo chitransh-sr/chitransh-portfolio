@@ -15,7 +15,7 @@ const Navbar = () => {
         <h1 className="text-4xl font-bold text-[#64ffda]">Chitransh</h1>
       </div>
 
-      <ul className="hidden md:flex">
+      <ul className="hidden md:flex space-x-4">
         <li className="border-b-2 border-transparent px-4 py-2 font-medium hover:border-[#64ffda] hover:text-[#64ffda]">
           <a href="#home">Home</a>
         </li>
@@ -38,11 +38,11 @@ const Navbar = () => {
       </div>
 
       <ul
-        className={
+        className={`${
           !nav
             ? "hidden"
             : "absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-[#0a192f]"
-        }
+        }`}
       >
         <li className="py-6 text-4xl">
           <a href="#home" className="block" onClick={handleLinkClick}>

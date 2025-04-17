@@ -53,9 +53,9 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="flex flex-col md:flex-row md:gap-8">
           <motion.div
-            className="mt-4"
+            className="mt-4 flex-1"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -98,7 +98,7 @@ const Contact = () => {
           </motion.div>
 
           <motion.div
-            className="mt-8 flex w-full items-center justify-center md:mt-0"
+            className="mt-8 flex w-full items-center justify-center md:mt-0 flex-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}

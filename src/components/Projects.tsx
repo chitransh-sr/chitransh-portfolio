@@ -21,8 +21,8 @@ const Projects = () => {
       technologies: ["React.js", "HTML", "CSS"],
       image:
         "https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      demoLink: "https://chitransh-sr.github.io/portfolio-react/",
-      codeLink: "https://github.com/chitransh-sr",
+      demoLink: "https://chitransh-portfolio-alpha.vercel.app/",
+      codeLink: "https://github.com/chitransh-sr/chitransh-portfolio",
     },
     {
       id: 3,
@@ -58,30 +58,22 @@ const Projects = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="inline border-b-4 border-[#64ffda] text-4xl font-bold">
+          <p className="inline-block border-b-4 border-[#64ffda] text-4xl font-bold">
             Projects
           </p>
         </motion.div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
-          {projects.map(
-            ({
-              id,
-              name,
-              description,
-              technologies,
-              image,
-              demoLink,
-              codeLink,
-            }) => (
-              <motion.div
-                key={id}
-                className="overflow-hidden rounded-md shadow-lg shadow-[#040c16]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: id * 0.2 }}
-                viewport={{ once: true }}
-              >
+        <div className="flex flex-col gap-8 sm:flex-row sm:flex-wrap">
+          {projects.map(({ id, name, description, technologies, image, demoLink, codeLink }) => (
+            <motion.div
+              key={id}
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(50%-1rem)]" 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: id * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="h-full overflow-hidden rounded-md shadow-lg shadow-[#040c16]">
                 <img
                   src={image}
                   alt={name}
@@ -121,9 +113,9 @@ const Projects = () => {
                     )}
                   </div>
                 </div>
-              </motion.div>
-            )
-          )}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
