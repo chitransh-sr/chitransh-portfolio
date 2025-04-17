@@ -1,7 +1,7 @@
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Introduction = () => {
   return (
     <div id="home" className="h-screen w-full bg-[#0a192f]">
       <div className="mx-auto flex h-full max-w-[1000px] flex-col justify-center px-8">
@@ -59,4 +59,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Introduction;
