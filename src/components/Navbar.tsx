@@ -23,6 +23,9 @@ const Navbar = () => {
           <a href="#about">About</a>
         </li>
         <li className="border-b-2 border-transparent px-4 py-2 font-medium hover:border-[#64ffda] hover:text-[#64ffda]">
+          <a href="#experience">Experience</a>
+        </li>
+        <li className="border-b-2 border-transparent px-4 py-2 font-medium hover:border-[#64ffda] hover:text-[#64ffda]">
           <a href="#skills">Skills</a>
         </li>
         <li className="border-b-2 border-transparent px-4 py-2 font-medium hover:border-[#64ffda] hover:text-[#64ffda]">
@@ -52,6 +55,11 @@ const Navbar = () => {
         <li className="py-6 text-4xl">
           <a href="#about" className="block" onClick={handleLinkClick}>
             About
+          </a>
+        </li>
+        <li className="py-6 text-4xl">
+          <a href="#experience" className="block" onClick={handleLinkClick}>
+            Experience
           </a>
         </li>
         <li className="py-6 text-4xl">
