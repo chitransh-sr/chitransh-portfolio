@@ -7,6 +7,8 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -18,25 +20,45 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
 
-    const mailtoLink = `mailto:chitransh2209@gmail.com?subject=New Message from Contact Form&body=Name: ${encodeURIComponent(
-      formData.name
-    )}%0D%0AEmail: ${encodeURIComponent(formData.email)}%0D%0AMessage: ${encodeURIComponent(
-      formData.message
-    )}`;
+    try {
+     
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          access_key: 'a6b4714a-f358-4fa0-99a7-5beddeaa877a', 
+          subject: 'New Contact Form Submission',
+          from_name: 'Portfolio Contact Form',
+          reply_to: formData.email,
+        }),
+      });
 
-    window.location.href = mailtoLink;
-
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
-
-    alert("Thanks for your message! Redirecting to the Email...");
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -137,10 +159,23 @@ const Contact = () => {
               />
               <button
                 type="submit"
-                className="mx-auto mt-8 flex items-center border-2 border-[#ccd6f6] px-6 py-3 font-bold text-[#ccd6f6] hover:border-[#64ffda] hover:bg-[#64ffda] hover:bg-opacity-20 hover:text-[#64ffda]"
+                disabled={isSubmitting}
+                className="mx-auto mt-8 flex items-center border-2 border-[#ccd6f6] px-6 py-3 font-bold text-[#ccd6f6] hover:border-[#64ffda] hover:bg-[#64ffda] hover:bg-opacity-20 hover:text-[#64ffda] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-[#ccd6f6] disabled:hover:bg-transparent disabled:hover:text-[#ccd6f6]"
               >
-                Let's Collaborate
+                {isSubmitting ? 'Sending...' : "Let's Collaborate"}
               </button>
+              
+              {submitStatus === 'success' && (
+                <div className="mt-4 p-3 bg-green-500 bg-opacity-20 border border-green-500 rounded-lg text-green-400 text-center">
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-3 bg-red-500 bg-opacity-20 border border-red-500 rounded-lg text-red-400 text-center">
+                  ❌ Failed to send message. Please try again or email me directly.
+                </div>
+              )}
             </form>
           </motion.div>
         </div>
