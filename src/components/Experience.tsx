@@ -3,6 +3,16 @@ import { motion } from "framer-motion";
 const Experience = () => {
   const experiences = [
     {
+      title: "Frontend Developer",
+      company: "Vertik AI",
+      period: "05/2025 - Present, Remote",
+      details: [
+        "AI-powered Sales Companion: Developed a responsive user interface for the Dashboard module of the Sales AI Companion web application, leveraging React and SCSS to enhance user experience and streamline data visualization for sales teams.",
+        "EmailXCRM module and Sales Form: Developed a user-friendly and responsive UI for the EmailXCRM module and Sales Form, utilizing React and SCSS to optimize email management, streamline sales data input, and improve user engagement for CRM workflows.",
+        "Email Settings, Company Profile, and People Profile modules: Developed responsive UI for Email Settings, Company Profile, and People Profile modules, using React and SCSS to enhance user configuration and profile management, improving usability and engagement in CRM workflows."
+      ]
+    },
+    {
       title: "Frontend Developer Intern",
       company: "Sparklin",
       period: "Jan 2024 - April 2024",

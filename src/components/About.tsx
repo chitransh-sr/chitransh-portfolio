@@ -68,7 +68,7 @@ const About = () => {
           viewport={{ once: true }}
         >
           <a
-            href="https://drive.google.com/file/d/1bA3m0smWYIvXlmpROlyjgKaTmjt88vdP/view?usp=sharing"
+            href="https://drive.google.com/file/d/1EMmTbwavSehrRzTDD7fLl71YeE0ollet/view?usp=sharing"
             download="Chitransh_Srivastava_Resume"
             target="_blank"
             className="px-6 py-3 border-2 border-[#64ffda] text-[#64ffda] font-medium rounded-md hover:bg-[#64ffda22] transition-colors duration-300"
